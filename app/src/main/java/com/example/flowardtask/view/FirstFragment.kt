@@ -1,6 +1,7 @@
 package com.example.flowardtask.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,6 +56,12 @@ class FirstFragment : BaseFragment(), KodeinAware, OnClick {
         viewModel.callApi()
         viewModel.successGetApi.subscribe {
             firstAdapter.addList(it)
+            hideLoading()
+        }
+
+        viewModel.errorGetApi.subscribe {
+
+            Log.e("errorGetApi", it)
             hideLoading()
         }
     }

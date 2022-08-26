@@ -1,10 +1,11 @@
 package com.example.flowardtask.network
 
-import com.example.flowardtask.pojo.PostResponse
-import com.example.flowardtask.pojo.UserResponse
+import com.example.flowardtask.pojo.PostResponseItem
+import com.example.flowardtask.pojo.UserResponseItem
 import io.reactivex.rxjava3.core.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -16,14 +17,9 @@ interface RetrofitService {
 
 
     @GET
-    fun getUserApi(
-        @Url url: String
-    ): Single<UserResponse>
+    fun getUserApi(@Url url: String): Single<List<UserResponseItem>>
 
-    @GET
-    fun getPostApi(
-        @Url url: String
-    ): Single<PostResponse>
+    @GET fun getPostApi(@Url url: String): Single<List<PostResponseItem>>
 
     companion object {
 

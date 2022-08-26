@@ -3,8 +3,6 @@ package com.example.flowardtask.pojo
 import com.google.gson.annotations.SerializedName
 
 data class PostResponse(
-
-    @field:SerializedName("PostResponse")
     val postResponse: List<PostResponseItem?>? = null
 )
 
